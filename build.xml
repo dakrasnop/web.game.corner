@@ -1,0 +1,37 @@
+
+<project name="game" default="compile" xmlns:ivy="antlib:org.apache.ivy.ant">
+	<property file="build.properties"/>
+	
+	<import file="${common.dir}/common.xml"/>
+
+	<target name="springboot war" depends="version, compile" description="--> generates a spring boot WAR file">
+		<jar destfile="target/${ant.project.name}.springBoot.war" compress="false">
+			<mappedresources>
+				<fileset dir="target/classes" />
+				<globmapper from="*" to="WEB-INF/classes/*"/>
+			</mappedresources>
+			<mappedresources>
+				<fileset dir="src/main/resources" erroronmissingdir="false"/>
+				<globmapper from="*" to="WEB-INF/classes/*"/>
+			</mappedresources>
+			<mappedresources>
+				<fileset dir="src/main/webapp/WEB-INF/views" erroronmissingdir="false"/>
+				<globmapper from="*" to="WEB-INF/views/*"/>
+			</mappedresources>
+			<mappedresources>
+				<fileset dir="src/main/webapp/WEB-INF" erroronmissingdir="false"/>
+				<globmapper from="*" to="WEB-INF/*"/>
+			</mappedresources>
+			<mappedresources>
+				<fileset dir="${lib.dir}" />
+				<globmapper from="*" to="WEB-INF/lib/*"/>
+			</mappedresources>
+			<zipfileset src="${lib.dir}/spring-boot-loader-${spring-boot.version}-jar.jar" />
+			<manifest>
+				<attribute name="Main-Class" value="org.springframework.boot.loader.WarLauncher" />
+				<attribute name="Start-Class" value="${start-class}" />
+			</manifest>
+		</jar>
+	</target>
+
+</project>

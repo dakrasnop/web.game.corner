@@ -1,0 +1,119 @@
+
+body {
+	margin: 0px;
+}
+
+#table {
+/*	width: 450px; */
+}
+.board {
+	float: left;
+	border: 2px solid silver;
+	padding: 4px;
+}
+
+.row {
+	clear: left;
+}
+
+.cell {
+	float: left;
+	border: 2px solid;
+	margin: 0px;
+	padding: 0px;
+	overflow: visible;
+	animation: none;
+}
+
+.odd {
+	background-color: #aad2f5;
+	border-color: #aad2f5;
+}
+
+.even {
+	background-color: #cde1ff;
+	border-color: #cde1ff;
+}
+
+.figure {
+	position: relative;
+	left: 0;
+	top: 0;
+	margin: 0;
+	z-index: 21;
+/*	transition: top 1s ease, left 1s ease; */
+	transition: none;
+
+/*	animation: fadeIn 2s linear infinite; */
+	animation: none;
+}
+
+.figure-img-w {
+	height: 100%;
+	width: 100%;
+	content: url("/game/img/figure-w-150.png");
+}
+
+.figure-img-b {
+	height: 100%;
+	width: 100%;
+	content: url("/game/img/figure-b-150.png");
+}
+
+@keyframes fadeIn {
+      0% {opacity:1; transform:scale(1);}
+      25% {opacity:0.25; transform:scale(1.1);}
+      50% {opacity:1; transform:scale(1);}
+      75% {opacity:0.25; transform:scale(0.9);}
+      100% {opacity:1; transform:scale(1);}
+}
+
+@keyframes possibleOdd {
+      0% {border-color:#aad2f5;}
+      50% {border-color:#9ab0cc;}
+      100% {border-color:#aad2f5;}
+}
+
+@keyframes possibleEven {
+      0% {border-color:#cde1ff;}
+      50% {border-color:#77a0c2;}
+      100% {border-color:#cde1ff;}
+}
+
+@keyframes traceable {
+       0% {background-color:rgba(51,151,51,0.25);}
+      25% {background-color:rgba(51,151,51,0.5);}
+      50% {background-color:rgba(51,151,51,0.75);}
+      75% {background-color:rgba(51,151,51,0.5);}
+     100% {background-color:rgba(51,151,51,0.25);}
+}
+
+.announcement {
+	position: relative;
+	float:left;
+	left: 0;
+	top: 0;
+	width: 200px;
+	height: 40px;
+	margin: 1px;
+	padding-top:10px;
+	border: 2px solid red;
+	color: red;
+	background-color: yellow;
+	text-align:center;
+	align-content:center;
+	z-index: 100;
+}
+.button {
+	color: #3e7878;
+}
+.error { color: red; }
+
+.copyright {
+	color:gray;
+	font-family: serif;
+	font-style: italic;
+	font-weight: lighter;
+	font-size: xx-small;
+	text-align: right;
+}

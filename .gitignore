@@ -1,0 +1,6 @@
+/logs/
+/lib/
+/target/
+**/.DS_Store/**
+/sim/
+/.DS_Store

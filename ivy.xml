@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="com.ak"
+        module="web.game"
+        status="integration"
+        revision="1.1.0" >
+	</info>
+	<dependencies>
+		<dependency org="com.ak" name="corners" rev="latest.integration" transitive="false" />
+		<dependency org="com.ak" name="jsontree" rev="latest.integration" transitive="false" />
+		<!--dependency org="com.tt" name="persist" rev="latest.integration" transitive="false" /-->
+		<!--dependency org="com.tt" name="dao.user" rev="latest.integration" transitive="false" /-->
+		<dependency org="org.springframework.boot" name="spring-boot-starter-web" rev="2.3.5.RELEASE"/>
+		<dependency org="org.springframework.boot" name="spring-boot-devtools" rev="2.3.5.RELEASE"/>
+		<dependency org="javax.servlet" name="jstl" rev="1.2"/>
+		<dependency org="org.apache.tomcat.embed" name="tomcat-embed-jasper" rev="9.0.39"/>
+		<dependency org="org.springframework.boot" name="spring-boot-loader" rev="2.3.5.RELEASE"/>
+<!-- Thanks for using https://jar-download.com -->
+<!-- Excluding unused dependencies will lead to shrink a WAR file -->
+		<exclude org="com.sun.jmx" module="jmxri" />
+		<exclude org="com.sun.jdmk" module="jmxtools" />
+<!-- Dependencies below have to be excluded, because Tomcat shared lib already has ones.
+		If we do not exclude them than they will conflict. 
+		<exclude org="org.apache.commons" module="com.springsource.org.apache.commons.attributes" />
+		<exclude org="javax.servlet"  module="com.springsource.javax.servlet" />
+		<exclude org="javax.servlet"  module="com.springsource.javax.servlet.jsp" />
+		<exclude org="javax.el"  module="com.springsource.javax.el" />
+-->
+		<exclude org="javax.servlet" module="jsp-api" />
+		<exclude org="com.fasterxml.jackson.core" />
+		<exclude org="com.fasterxml.jackson.datatype" />
+		<exclude org="com.fasterxml.jackson.module" />
+	</dependencies>
+	
+</ivy-module>
